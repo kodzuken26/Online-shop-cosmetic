@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h2>Личный кабинет</h2>
+<div class="profile">
+    <p>Добро пожаловать, {{ user.username }}!</p>
+    <h3 class="basket">Корзина</h3>
+    <div class="basket-main">
+        <p>В вашей корзине ничего нет</p>
+        <img src="{% static 'img/sad-smile.png'%}" width="50">
+        <p class="basket-link">Загляните в <a href="/catalog/">каталог</a>, чтобы добавить товары</p>
+    </div>
+    <a href="{% url 'logout' %}">Выйти с аккаунта</a>
+</div>
+
+{% endblock %}

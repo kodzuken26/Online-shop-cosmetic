@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/base.css' %} ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Your clean{% endblock %}</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+           <a href="#"><img src=" {% static 'img/logo2.png' %} " alt="" class="logo"></a> 
+            <div>
+                <nav class="menu-nav">
+                    <ol class="menu-nav-ol">
+                        <li class="menu-li"><a href="{%  url 'home'  %}">Главная</a></li>
+                        <li class="menu-li"><a href="{% url 'catalog' %}">Каталог</a></li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="user-links">
+                {% if user.is_authenticated %}
+                <nav class="menu-nav"> 
+                    <ol class="menu-nav-ol">
+                        <li class="menu-li"><a href="{% url 'profile' %}">Профиль</a> </li>
+                        <li class="menu-li"><a href="{% url 'logout' %}">Выйти</a> </li>
+                    </ol>
+                </nav>
+                
+                    
+                {% else %}
+                <nav class="menu-nav"> 
+                    <ol class="menu-nav-ol">
+                        <li class="menu-li"><a href="{% url 'login' %}">Войти</a> </li>
+                        <li class="menu-li"><a href="{% url 'register' %}">Регистрация</a> </li>
+                    </ol>
+                </nav>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <body>
+        {% block content %}
+        
+        {% endblock %}
+    </body>
+    <footer class="footer">
+        <div class="footer-top">
+            <p class="footer-p">Online-shop "Your clean" @2025</p>
+        </div>
+    </footer>
+</body>
+</html>

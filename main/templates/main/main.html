@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+{% block content %}
+    <div class="main">
+        <h1>Добро пожаловать в Your Clean – место, где красота начинается с чистоты и заботы!</h1>
+        <div class="main-p">Наш магазин предлагает лучшую корейскую уходовую и декоративную косметику, созданную по инновационным технологиям. Мы верим, что здоровая кожа – это основа естественной красоты, поэтому в ассортименте только качественные, эффективные и безопасные средства с доказанным действием.
+
+Почему корейская косметика?
+Корея – мировой лидер в beauty-индустрии, и мы привозим топовые бренды, которые уже завоевали любовь миллионов:<br>
+<br>✔ Innisfree, COSRX, Laneige, Missha, Dear, Klairs, Pyunkang Yul и многие другие. 
+<br>✔ Многоступенчатый уход – от двойного очищения до финального увлажнения.
+<br>✔ Натуральные и высокотехнологичные формулы без вредных компонентов.</div>
+<h2>Что вы найдёте в Your Clean?</h2>
+<p class="main-p"> 
+    <nav class="main-p-nav">
+        <ul class="main-ul"> 
+            <li>Уходовая косметика </li>
+            <li>Декоративная косметика</li>
+            <li>Особый акцент на clean beauty</li>
+        </ul>
+        
+    </nav>   
+</p>
+
+<h2>Наши преимущества</h2>
+<p class="main-p2">✅ Оригинальная продукция – только прямые поставки от производителей. <br>
+✅ Консультации от бьюти-экспертов – поможем подобрать уход индивидуально. <br>
+✅ Доступные цены и акции – красота должна быть в радость! <br>
+✅ Быстрая доставка по всей стране.</p>
+
+<h2>Your Clean – не просто косметика, это философия ухода.
+Попробуйте корейский ритуал красоты и убедитесь: ваша кожа достойна лучшего!</h2>
+
+    </div>
+    <h2>Принимаем предложения о товарах, которые вы хотели бы видеть в нашем магазине</h2>
+    <form id="responseForm" class="form-main">
+        <input type="text" id="userInput" placeholder="Ваше предложение" required class="input-main">
+        <button type="submit" class="button-main">Отправить</button>
+    </form>
+
+    <div id="result" class="result" style=""></div>
+    <script>
+        document.getElementById('responseForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            let userInput = document.getElementById('userInput').value;
+
+            let message = 'Вы предложили: ' + userInput + '<br>Мы учтем ваши пожелания! :)';
+
+            let resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = message;
+            resultDiv.style.display = 'block';
+
+            document.getElementById('userInput').value = '';
+        });
+    </script>
+{% endblock content %}

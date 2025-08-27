@@ -1,0 +1,34 @@
+[
+    {
+        "model": "goods.category",
+        "pk": 1,
+        "fields": {
+            "name": "Макияж",
+            "slug": "make up"
+        }
+    },
+    {
+        "model": "goods.category",
+        "pk": 2,
+        "fields": {
+            "name": "Уход за лицом",
+            "slug": "facial treatment"
+        }
+    },
+    {
+        "model": "goods.category",
+        "pk": 3,
+        "fields": {
+            "name": "Волосы",
+            "slug": "hair"
+        }
+    },
+    {
+        "model": "goods.category",
+        "pk": 4,
+        "fields": {
+            "name": "Тело",
+            "slug": "body"
+        }
+    }
+]

@@ -1,0 +1,50 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="catalog"> 
+    <h1>Каталог товаров</h1>
+    
+    
+    <div class="filters">
+        <div class="category-filter">
+            <ul>
+                <li><a href="{% url 'catalog' %}" {% if not current_category %}class="active"{% endif %}>Все товары</a></li>
+                {% for category in categories %}
+                    <li>
+                        <a href="{% url 'catalog_by_category' category.slug %}" 
+                           {% if current_category == category.slug %}class="active"{% endif %}>
+                            {{ category.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        
+    </div>
+    
+    
+    <div class="products-list">
+        {% for product in products %}
+            <div class="product-card">
+                
+                
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" width="200" class="product-photo">
+                {% else %}
+                    <p>Изображение отсутствует</p>
+                {% endif %}
+                <p class="product-description">{{ product.description|default:"Описание отсутствует" }}</p>
+                <h2 class="product-name">{{ product.name }}</h2>
+                <p class="product-price"> {{ product.price|floatformat:0 }} ₽</p>
+            </div>
+        {% empty %}
+            <p>Товары отсутствуют.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content%}
+
+
